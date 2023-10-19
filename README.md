@@ -111,6 +111,17 @@ The Positions Overview shows the cumulative volumes, costs, invested amount, cur
 | 2020-01-20 |        4 |       0 |            224.32 |          227.86 |                1.02 |              0.44 |             0.44 |
 | 2020-01-21 |        4 |       0 |            224.32 |          227.71 |                1.02 |              0.44 |             0.44 |
 
+It becomes possible to plot the current weight over time as follows:
+
+```python
+positions_overview['Current Weight'].plot.area(figsize=(15, 5), title='Portfolio Allocation over Time')
+```
+
+Which returns:
+
+![Current Weights](https://github.com/JerBouma/FinancePortfolio/assets/46355364/8f6d6b6a-235a-4075-a2f0-8de5ddb16567)
+
+
 ### Portfolio Overview
 
 The Portfolio Overview is an aggregation of each instrument based on volume, price, costs, invested and most recent value. Next to that, it also calculates the return, benchmark return, acquired alpha and the current portfolio weight.
@@ -124,6 +135,16 @@ The Portfolio Overview is an aggregation of each instrument based on volume, pri
 | UST.PA   | MULTI NASDAQ 100                          |       84 |   43.48 |   -7.02 |    3652.35 |          57.54 |        4833.36 |     0.32 |        1181.01 |               0.19 |    0.13 |     0.1  |
 | VUSA.AS  | VANGUARD S&P500                           |      116 |   62.97 |   -3    |    7304.21 |          78.27 |        9079.32 |     0.24 |        1775.11 |               0.2  |    0.04 |     0.18 |
 | VWRL.AS  | VANGUARD FTSE AW                          |      132 |   99.24 |    0    |   13099.2  |         102.82 |       13572.2  |     0.04 |         473.07 |               0.02 |    0.01 |     0.27 |
+
+Getting insights from this overview:
+
+```python
+portfolio_overview['Return Value'].plot.bar(title='Returns of the Portfolio', figsize=(10, 5), color=['g' if x >= 0 else 'r' for x in portfolio_overview['Return Value']])
+```
+
+Which returns:
+
+![Return Value Portfolio](https://github.com/JerBouma/FinancePortfolio/assets/46355364/a6c0a743-4818-4f58-a87f-22a5286118b7)
 
 ### Portfolio Performance Overview
 
