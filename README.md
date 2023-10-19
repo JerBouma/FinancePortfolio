@@ -9,11 +9,7 @@ Tracking your investment portfolio and personal finances can be tedious. It eith
 
 **I want to give you back the control to properly and efficiently track your finances with the FinancePortfolio**. Through the usage of configuration files, it becomes possible to connect multiple brokers as you desire and have the FinancePortfolio do the heavy lifting for you. It will automatically obtain historical data for all instruments in your portfolio, calculate the returns, benchmark returns, alpha and weight of each instrument and (optionally) provide you with a neat looking Excel file that you can further customize yourself.
 
-___
-
 **The FinancePortfolio has the ability to send over your assets and portfolio to the [Finance Toolkit 🛠️](https://github.com/JerBouma/FinanceToolkit) in an instant** which allows the calculation of 130+ ratios, technicals, performance and risk measurements directly onto your portfolio. See [here](#finance-toolkit-support).
-
-___
 
 By doing most of these things through Python and Excel, you have the complete freedom to decide what to do with the output. For example, you can use it to create your own personalized dashboards via any programming language or application such as Excel, PowerBI, Tableau, etc. **I don't want to bore you with custom dashboards that I tailored to myself just so that you can come to the conclusion that it isn't a perfect fit for you.**
 
