@@ -8,7 +8,7 @@ import yaml
 
 # pylint: disable=too-few-public-methods
 
-BASE_URL = "https://raw.githubusercontent.com/JerBouma/FinancePortfolio/develop/"
+BASE_URL = "https://raw.githubusercontent.com/JerBouma/FinancePortfolio/main/"
 VALID_CODE = 200
 
 
