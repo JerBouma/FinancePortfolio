@@ -16,6 +16,12 @@ By doing most of these things through Python and Excel, you have the complete fr
 
 # Installation
 
+___
+
+**NOTE:** STILL IN DEVELOPMENT. Not yet available.
+
+___
+
 Before installation, consider starring the project on GitHub which helps others find the project as well. 
 
 To install the FinancePortfolio it simply requires the following:
