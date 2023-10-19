@@ -84,9 +84,7 @@ def read_yaml_file(location: str):
         raise ValueError(f"An error occurred: {exc}") from exc
 
 
-def download_example_datasets(
-    portfolio: bool = True,
-):
+def download_example_datasets(base_url: str | None = None):
     """
     Download example datasets from the GitHub repository. These are used to test the application.
 
@@ -104,16 +102,14 @@ def download_example_datasets(
             - examples/portfolio/Transactions 3.csv
             - examples/cashflows/cashflow_example.csv
     """
-    if portfolio:
-        directory = "examples/portfolio/"
-        urls = [
-            f"{BASE_URL}examples/portfolio/Transactions 1.csv",
-            f"{BASE_URL}examples/portfolio/Transactions 2.csv",
-            f"{BASE_URL}examples/portfolio/Transactions 3.csv",
-        ]
-    if not portfolio:
-        directory = "examples/cashflows/"
-        urls = [f"{BASE_URL}examples/cashflows/cashflow_example.csv"]
+    base_url = base_url if base_url else BASE_URL
+
+    directory = "examples/portfolio/"
+    urls = [
+        f"{BASE_URL}examples/portfolio/Transactions 1.csv",
+        f"{BASE_URL}examples/portfolio/Transactions 2.csv",
+        f"{BASE_URL}examples/portfolio/Transactions 3.csv",
+    ]
 
     for url in urls:
         response = requests.get(url, timeout=60)
@@ -137,9 +133,7 @@ def download_example_datasets(
             )
 
 
-def download_yaml_configuration(
-    portfolio: bool = True, example: bool = False, name: str | None = None
-):
+def download_yaml_configuration(example: bool = False, name: str | None = None):
     """
     Download the YAML configuration files from the GitHub repository. It is both possible to download the
     default configuration files or the example configuration files.
@@ -165,28 +159,16 @@ def download_yaml_configuration(
     if name and not name.endswith(".yaml"):
         raise ValueError("Please include the .yaml extension type.")
 
-    if portfolio:
-        if example:
-            directory = "examples/configurations/"
-            if not name:
-                name = "portfolio_example.yaml"
-            url = BASE_URL + "examples/configurations/portfolio_example.yaml"
-        else:
-            directory = "configurations/"
-            if not name:
-                name = "portfolio.yaml"
-            url = BASE_URL + "configurations/portfolio.yaml"
-    if not portfolio:
-        if example:
-            directory = "examples/configurations/"
-            if not name:
-                name = "cashflow_example.yaml"
-            url = BASE_URL + "examples/configurations/cashflow_example.yaml"
-        else:
-            directory = "configurations/"
-            if not name:
-                name = "cashflow.yaml"
-            url = BASE_URL + "configurations/cashflow.yaml"
+    if example:
+        directory = "examples/configurations/"
+        if not name:
+            name = "portfolio_example.yaml"
+        url = BASE_URL + "examples/configurations/portfolio_example.yaml"
+    else:
+        directory = "configurations/"
+        if not name:
+            name = "portfolio.yaml"
+        url = BASE_URL + "configurations/portfolio.yaml"
 
     response = requests.get(url, timeout=60)
 

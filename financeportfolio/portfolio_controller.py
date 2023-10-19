@@ -4,8 +4,7 @@
 import pandas as pd
 from financetoolkit import Toolkit
 
-from financeportfolio import helpers
-from financeportfolio.portfolio import excel_model, portfolio_model
+from financeportfolio import excel_model, helpers, portfolio_model
 
 # pylint: disable=too-many-instance-attributes,abstract-class-instantiated,
 # pylint: disable=too-few-public-methods,protected-access,too-many-lines
@@ -55,19 +54,15 @@ class Portfolio:
                 Only '.yaml' configuration files are supported.
         """
         if example:
-            configuration_file = helpers.download_yaml_configuration(
-                portfolio=True, example=True
-            )
-            helpers.download_example_datasets(portfolio=True)
+            configuration_file = helpers.download_yaml_configuration(example=True)
+            helpers.download_example_datasets()
             print(
                 f"Creating new Portfolio Configuration file at {configuration_file} and "
                 "downloading example datasets.\nRunning the Portfolio class with this example "
                 "dataset which illustrates the functionality of the Portfolio class."
             )
         elif configuration_file is None:
-            configuration_file = helpers.download_yaml_configuration(
-                portfolio=True, example=False
-            )
+            configuration_file = helpers.download_yaml_configuration(example=False)
             print(
                 f"Creating new Portfolio file at {configuration_file}. Please provide this file "
                 "path to the Portfolio class to prevent overwriting the existing file."
