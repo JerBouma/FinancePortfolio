@@ -1,4 +1,4 @@
-![FinancePortfolio](https://github.com/JerBouma/FinancePortfolio/assets/46355364/d3560ff3-1d2a-4ba2-a99d-dcf7b6ec2c5c)
+![FinancePortfolio](https://github.com/JerBouma/PersonalFinance/assets/46355364/d3560ff3-1d2a-4ba2-a99d-dcf7b6ec2c5c)
 [![GitHub Sponsors](https://img.shields.io/badge/Sponsor_this_Project-grey?logo=github)](https://github.com/sponsors/JerBouma)
 [![Documentation](https://img.shields.io/badge/Documentation-grey?logo=readme)](https://www.jeroenbouma.com/projects/FinancePortfolio)
 [![Supported Python Versions](https://img.shields.io/pypi/pyversions/FinancePortfolio)](https://pypi.org/project/FinancePortfolio/)
@@ -9,15 +9,14 @@ Tracking your investment portfolio and personal finances can be tedious. It eith
 
 **I want to give you back the control to properly and efficiently track your finances with the FinancePortfolio**. Through the usage of configuration files, it becomes possible to connect multiple brokers as you desire and have the FinancePortfolio do the heavy lifting for you. It will automatically obtain historical data for all instruments in your portfolio, calculate the returns, benchmark returns, alpha and weight of each instrument and (optionally) provide you with a neat looking Excel file that you can further customize yourself.
 
+___
+
 **The FinancePortfolio has the ability to send over your assets and portfolio to the [Finance Toolkit 🛠️](https://github.com/JerBouma/FinanceToolkit) in an instant** which allows the calculation of 130+ ratios, technicals, performance and risk measurements directly onto your portfolio. See [here](#finance-toolkit-support).
+
+___
 
 By doing most of these things through Python and Excel, you have the complete freedom to decide what to do with the output. For example, you can use it to create your own personalized dashboards via any programming language or application such as Excel, PowerBI, Tableau, etc. **I don't want to bore you with custom dashboards that I tailored to myself just so that you can come to the conclusion that it isn't a perfect fit for you.**
 
-# Table of Contents
-
-- [Installation](#installation)
-- [Analyzing your Investment Portfolio](#analyzing-your-investment-portfolio)
-- [Tracking your Personal Finances](#tracking-your-personal-finances)
 
 # Installation
 
@@ -39,7 +38,7 @@ portfolio = Portfolio()
 
 This will generate the configuration file for you to use which you can supply again by using `configuration_file='portfolio.yaml`. See below for more information about each capability and what you can do with this file.
 
-# Analyzing your Investment Portfolio
+# Functionality
 
 This package allows you to track your portfolio by accepting your portfolio transactions and doing (basic) analysis on the portfolio. It uses functionality from the [Finance Toolkit 🛠️](https://github.com/JerBouma/FinanceToolkit) to be able to determine asset classes as well as obtain historical data and do currency conversions and can directly use ALL of the 130+ metrics that the FinanceToolkit has. It features the following core functionality:
 
@@ -231,13 +230,3 @@ portfolio.create_excel_report()
 This creates the following file:
 
 ![Portfolio Excel Example](https://github.com/JerBouma/FinancePortfolio/assets/46355364/ffda33c2-b594-46af-9454-48db4205ff05)
-
-# Tracking your Personal Finances
-
-Tracking personal finances can be tedious. It either requires a massive time investment to keep everything well categorized as new transactions come in or it is far from accurate with tools that try to do prediction to define categories for you. Perhaps it works fine for names such as "Wall Mart" or "Starbucks" but your local bakery called "Morty's Place" is definitely not going to get picked up by the model. Many personal finance tools allow you to manually adjust these categories but that is just as tedious as doing it from scratch.
-
-This solution still requires some proper time investment as you will have to define each category but once you have your categories and keywords written down, you can be sure that the model will categorise transactions how you defined them. This is because it is not a generic model that is trained on a large dataset of transactions from all over the world. It is trained on your own data, which means that it will be able to categorise transactions that are specific to you. This results in Morty's Place being correctly categorised as a Bakery.
-
-To assist in not needing to get **exact** matches, the package makes use of the [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance) to determine how similar two strings are. This means that if you have a category called "Groceries" with the keyword "Supermarket" and a transaction comes in with the name "Rick's Super Market", it will still be categorised as "Groceries". There is a limited amount of Mumbo Jumbo going on here on purpose so that it still becomes logical why it is categorised as such.
-
-Once categorization is done, it is able to create a neat looking Excel file for you that you can fully customize yourself further. It is up to you how you wish to proceed. Perhaps continue in Python or expand on the Excel created. I believe that everyone has his custom needs in which no tool can fully provide whereas Python and Excel gives you the freedom to expand how you'd like.
